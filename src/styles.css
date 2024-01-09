@@ -1,1 +1,301 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+@import url('https://unpkg.com/css.gg@2.0.0/icons/css/arrow-down-o.css');
+
+img {
+  transition: 0.5s ease-in-out;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.mid-pink-border {
+  outline: 2px #ec3664 !important;
+  border: 2px #ec3664 !important;
+}
+
+.input-lg {
+  padding: 1.5rem;
+  border: 1px solid #ec3664;
+  border-radius: 15px;
+}
+
+.input-lg:focus {
+  outline: none;
+  border: 3px solid #ff0059;
+  border-radius: 10px;
+}
+
+.danger-border {
+  border: 3px solid #f13434;
+}
+
+.success-border {
+  border: 3px solid #40da9d;
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.pointer-cursor {
+  cursor: pointer;
+}
+
+.no-outline {
+  outline: none;
+}
+
+.display-7 {
+  font-size: 2rem;
+}
+
+.jap-font {
+  font-family: 'Noto Serif JP', serif;
+}
+
+.main-font {
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+.pixel-font {
+  font-family: 'Silkscreen', sans-serif;
+}
+
+.pointer-cursor {
+  cursor: pointer;
+}
+
+/* Стилизация контейнера span */
+.custom-select {
+  display: inline-block;
+  position: relative;
+}
+
+/* Стилизация селекта */
+.styled-select {
+  appearance: none; /* Скрыть стандартные стили браузера */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #ccc;
+  padding: 5px 25px 5px 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none; /* Убрать рамку фокуса */
+}
+
+/* Стилизация опций */
+.styled-select option {
+  padding: 5px;
+}
+
+/* Стилизация стрелки (можно использовать иконку) */
+.styled-select::after {
+  content: '\25BC'; /* Юникод-символ для стрелки вниз */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+/* При наведении изменяем цвет селекта */
+.styled-select:hover {
+  border-color: #999;
+}
+
+.card-brand {
+  border-top: 4px solid var(--pink-color-bright);
+}
+
+.big-input {
+  height: 4rem;
+  width: 8rem;
+  font-size: 2.5rem;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+a {
+  text-decoration: none;
+  transition: font-size 0.2s, font-weight 0.2s;
+}
+
+.fade-in-el {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.glow {
+  color: #fff;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px var(--pink-color-mid), 0 0 30px var(--pink-color-mid), 0 0 40px var(--pink-color-mid), 0 0 50px var(--pink-color-mid), 0 0 60px var(--pink-color-mid);
+  }
+
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px var(--pink-color-light), 0 0 30px var(--pink-color-light), 0 0 40px var(--pink-color-light), 0 0 50px var(--pink-color-light), 0 0 60px var(--pink-color-light), 0 0 70px var(--pink-color-light);
+  }
+}
+
+.alert-alt {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  color: #1f1f1f;
+  text-transform: uppercase;
+}
+
+.alert_info {
+  background-color: #4285f4;
+  border: 2px solid #4285f4
+}
+
+button.close {
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0
+}
+
+.close {
+  font-size: 20px;
+  color: #fff;
+  opacity: 0.9;
+  font-weight: normal
+}
+
+.alert-success-alt {
+  background-color: #09c97f;
+  border: 2px solid #09c97f
+}
+
+.alert_warning {
+  background-color: #f8b15d;
+  border: 2px solid #f8b15d
+}
+
+.alert-danger-alt {
+  background-color: #f95668;
+  border: 2px solid #f95668
+}
+
+.fade_info {
+  background-color: #d9e6fb;
+  border: 1px solid #4285f4
+}
+
+.fade_info .close {
+  color: #4285f4
+}
+
+.fade_info strong {
+  color: #4285f4
+}
+
+.fade_success {
+  background-color: #c9ffe5;
+  border: 1px solid #09c97f
+}
+
+.fade_success .close {
+  color: #09c97f
+}
+
+.fade_success strong {
+  color: #09c97f
+}
+
+.fade_warning {
+  background-color: #fff0cc;
+  border: 1px solid #f8b15d
+}
+
+.fade_warning .close {
+  color: #f8b15d
+}
+
+.fade_warning strong {
+  color: #f8b15d
+}
+
+.fade_error {
+  background-color: #ffdbdb;
+  border: 1px solid #f95668
+}
+
+.fade_error .close {
+  color: #f95668
+}
+
+.fade_error strong {
+  color: #f95668
+}
+
+.custom-modal {
+  display: flex;
+  flex-direction: column;
+  background-color: #1f1f1f;
+  border-radius: 4px;
+  color: var(--white-color);
+  font-family: 'Didact Gothic', sans-serif;
+  border: 1px solid #f87ba6;
+  padding: 1.5rem;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
+  margin: 1.75rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+
+
