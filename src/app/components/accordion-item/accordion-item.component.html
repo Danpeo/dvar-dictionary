@@ -1,0 +1,14 @@
+<div class="accordion-item no-border">
+  <div class="accordion-header">
+    <button class="accordion-button bg-green txt-dark fs-4" (click)="toggleItem()">
+      {{title}}
+    </button>
+  </div>
+  <div class="accordion-collapse collapse show">
+    <div class="accordion-content bg-secondary " *ngIf="expanded">
+      <div class="p-4">
+        <ng-content/>
+      </div>
+    </div>
+  </div>
+</div>
