@@ -29,38 +29,15 @@ export class AppComponent {
     } else {
       this.getDefinition('kind');
     }
-
-    this.synonyms = this.dictEntries.flatMap(de =>
-      de.meanings.flatMap(m =>
-        m.definitions.flatMap(d => d.synonyms)
-      )
-    );
-
-    this.antonyms = this.dictEntries.flatMap(de =>
-      de.meanings.flatMap(m =>
-        m.definitions.flatMap(d => d.antonyms)
-      )
-    );
   }
 
   getDefinition(word: string): void {
+    this.dictEntries.splice(0, this.dictEntries.length);
     this.dictionaryService.getDefinition(word).subscribe({
       next: (data) => {
         this.dictEntries = data;
         this.locStorageService.saveToLocalStorage(this.dictionaryService.dictionaryKey, this.dictEntries);
-      },
-      error: (error) => {
-        console.error('Error fetching definition:', error);
-      },
-    });
-  }
-
-  getLastDefinitionFromLocStorage(): void {
-    this.dictionaryService.getLastDefinitionFromLocalStorage()?.subscribe({
-      next: (data) => {
-        if (data) {
-          this.dictEntries = data;
-        }
+        this.setSynonymsAndAntonyms();
       },
       error: (error) => {
         console.error('Error fetching definition:', error);
@@ -73,5 +50,33 @@ export class AppComponent {
       return;
 
     this.getDefinition(this.word);
+  }
+
+  private getLastDefinitionFromLocStorage(): void {
+    this.dictionaryService.getLastDefinitionFromLocalStorage()?.subscribe({
+      next: (data) => {
+        if (data) {
+          this.dictEntries = data;
+          this.setSynonymsAndAntonyms();
+        }
+      },
+      error: (error) => {
+        console.error('Error fetching definition:', error);
+      },
+    });
+  }
+
+  private setSynonymsAndAntonyms() {
+    this.synonyms = this.dictEntries.flatMap(de =>
+      de.meanings.flatMap(m =>
+        m.definitions.flatMap(d => d.synonyms)
+      )
+    );
+
+    this.antonyms = this.dictEntries.flatMap(de =>
+      de.meanings.flatMap(m =>
+        m.definitions.flatMap(d => d.antonyms)
+      )
+    );
   }
 }

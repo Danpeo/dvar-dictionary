@@ -24,7 +24,7 @@ export class DictionaryService {
     let dictEntries: DictionaryEntry[] = this.localStorageService.loadFromStorage(this.dictionaryKey);
 
     if (dictEntries && dictEntries.length > 0) {
-      return of(dictEntries); // Use the of operator to create an observable immediately.
+      return of(dictEntries);
     }
 
     return null;
